@@ -200,6 +200,52 @@ listPar.appendChild(totalLiPar);
 
 
 
+// Lima Sales Div
+let limaList = document.getElementById('limaList');
+console.log(limaList);
+
+// Lima Object
+const lima = {
+    name: 'Lima',
+    min: 2,
+    max: 16,
+    avg: 4.6,
+    dailyTotal: 0,
+    hourlyTotArr: [],
+}
+console.log(getRandomCustomers(lima.max, lima.min));
+
+// Creating & adding an h2
+let headLim = document.createElement('h2');
+headLim.textContent = lima.name + ' Sales';
+limaList.appendChild(headLim);
+
+// Creating and adding a section
+let sectLim = document.createElement('section');
+headLim.appendChild(sectLim);
+
+// Creating and adding unordered list
+let listLim = document.createElement('ul');
+sectLim.appendChild(listLim);
+
+// Creating a list item and add content to li add adding section to the DOM
+for (let i = 0; i < hours.length; i++) {
+    let listItemLim = document.createElement('li');
+    let hourlyLimTotal = getRandomCustomers(lima.max, lima.min);
+    lima.dailyTotal += hourlyLimTotal;
+    lima.hourlyTotArr.push(hourlyLimTotal);
+    listItemLim.textContent = `${hours[i]}: ${hourlyLimTotal} cookies`;
+    listLim.appendChild(listItemLim);
+    console.log(`${hours[i]}: ${hourlyLimTotal} cookies`);
+}
+
+// Creating and adding a li item
+let totalLiLim = document.createElement('li');
+totalLiLim.textContent = `Total: ${lima.dailyTotal} cookies`;
+console.log(`Totals: ${lima.dailyTotal} cookies`);
+console.log(lima.hourlyTotArr);
+listLim.appendChild(totalLiLim);
+
 
 
 
