@@ -1,3 +1,15 @@
 h2 {
     font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    color: #0F6499;
+}
+
+ul {
+    font-family: Arial, verdana, Helvetica;
+    font-size: 20px;
+    color: #2880d7;
+}
+
+body {
+    background-color: #E6BC82;
 }

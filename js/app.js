@@ -7,10 +7,10 @@ function getRandomCustomers(max, min) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+
 // Seattle Sales Div
 let seattleList = document.getElementById('seattleList');
 console.log(seattleList);
-
 
 // Seattle Object
 const seattle = {
@@ -149,9 +149,6 @@ console.log(dubai.hourlyTotArr);
 listDub.appendChild(totalLiDub);
 
 
-
-
-
 // Paris Sales Div
 let parisList = document.getElementById('dubaiList');
 console.log(parisList);
@@ -197,7 +194,6 @@ totalLiPar.textContent = `Total: ${paris.dailyTotal} cookies`;
 console.log(`Totals: ${paris.dailyTotal} cookies`);
 console.log(paris.hourlyTotArr);
 listPar.appendChild(totalLiPar);
-
 
 
 // Lima Sales Div
