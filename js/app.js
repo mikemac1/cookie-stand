@@ -152,19 +152,57 @@ listDub.appendChild(totalLiDub);
 
 
 
+// Paris Sales Div
+let parisList = document.getElementById('dubaiList');
+console.log(parisList);
 
-
-
-
-
-
-
-
-
+// Paris Object
 const paris = {
+    name: 'Paris',
+    min: 20,
+    max: 38,
+    avg: 2.3,
+    dailyTotal: 0,
+    hourlyTotArr: [],
+}
+console.log(getRandomCustomers(paris.max, paris.min));
 
+// Creating & adding an h2
+let headPar = document.createElement('h2');
+headPar.textContent = paris.name + ' Sales';
+parisList.appendChild(headPar);
+
+// Creating and adding a section
+let sectPar = document.createElement('section');
+headPar.appendChild(sectPar);
+
+// Creating and adding unordered list
+let listPar = document.createElement('ul');
+sectPar.appendChild(listPar);
+
+// Creating a list item and add content to li add adding section to the DOM
+for (let i = 0; i < hours.length; i++) {
+    let listItemPar = document.createElement('li');
+    let hourlyParTotal = getRandomCustomers(paris.max, paris.min);
+    paris.dailyTotal += hourlyParTotal;
+    paris.hourlyTotArr.push(hourlyParTotal);
+    listItemPar.textContent = `${hours[i]}: ${hourlyParTotal} cookies`;
+    listPar.appendChild(listItemPar);
+    console.log(`${hours[i]}: ${hourlyParTotal} cookies`);
 }
 
-const lima = {
+// Creating and adding a li item
+let totalLiPar = document.createElement('li');
+totalLiPar.textContent = `Total: ${paris.dailyTotal} cookies`;
+console.log(`Totals: ${paris.dailyTotal} cookies`);
+console.log(paris.hourlyTotArr);
+listPar.appendChild(totalLiPar);
 
-}
+
+
+
+
+
+
+
+
