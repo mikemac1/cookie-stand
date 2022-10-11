@@ -17,3 +17,24 @@ body {
 a {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
+
+table, td, th {
+	border: 1px solid black;
+}
+
+table {
+	margin: 1rem;
+}
+
+td, th {
+	padding: 1.5rem;
+}
+
+thead th {
+    font-size: 14px;
+    color: black;
+}
+
+tfoot {
+	background-color: rgba(112,159,165, .1);
+}

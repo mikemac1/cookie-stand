@@ -1,6 +1,8 @@
 'use strict'
 
-let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm']
+let hours = ['6 am', '7 am', '8 am', '9 am', '10 am', '11 am', '12 pm', '1 pm', '2 pm', '3 pm', '4 pm', '5 pm', '6 pm', '7 pm']
+
+let stores = [];
 
 // Need to generate a random number of customers per hour
 function getRandomCustomers(max, min) {
@@ -15,41 +17,43 @@ function City(name, min, max, avg) {
     this.avg = avg;
     this.dailyTotal = 0;
     this.hourlyTotArr = [];
-    this.renderCity = function () {
-        // City Sales Div
-        let cityList = document.getElementById('cityList');
-        console.log(cityList);
-        // Creating & adding an h2
-        let headCity = document.createElement('h2');
-        headCity.textContent = this.name + ' Sales';
-        cityList.appendChild(headCity);
+    stores.push(this);
+}
 
-        // Creating and adding a section
-        let sectCity = document.createElement('section');
-        headCity.appendChild(sectCity);
+City.prototype.renderCity = function () {
+    // City Sales Div
+    let cityList = document.getElementById('cityList');
+    console.log(cityList);
+    // Creating & adding an h2
+    let headCity = document.createElement('h2');
+    headCity.textContent = this.name + ' Sales';
+    cityList.appendChild(headCity);
 
-        // Creating and adding unordered list
-        let listCity = document.createElement('ul');
-        sectCity.appendChild(listCity);
+    // Creating and adding a section
+    let sectCity = document.createElement('section');
+    headCity.appendChild(sectCity);
 
-        // Creating a list item and add content to li and adding section to the DOM
-        for (let i = 0; i < hours.length; i++) {
-            let listItemCity = document.createElement('li');
-            let hourlyCityTotal = Math.ceil(getRandomCustomers(this.max, this.min) * this.avg);
-            this.dailyTotal += hourlyCityTotal;
-            this.hourlyTotArr.push(hourlyCityTotal);
-            listItemCity.textContent = `${hours[i]}: ${hourlyCityTotal} cookies`;
-            listCity.appendChild(listItemCity);
-            console.log(`${hours[i]}: ${hourlyCityTotal} cookies`);
-        }
+    // Creating and adding unordered list
+    let listCity = document.createElement('ul');
+    sectCity.appendChild(listCity);
 
-        // Creating and adding a Totals li item
-        let totalLiCity = document.createElement('li');
-        totalLiCity.textContent = `Total: ${this.dailyTotal} cookies`;
-        console.log(`Totals: ${this.dailyTotal} cookies`);
-        console.log(this.hourlyTotArr);
-        listCity.appendChild(totalLiCity);
+    // Creating a list item, add content to li, and adding section to the DOM
+    for (let i = 0; i < hours.length; i++) {
+        let listItemCity = document.createElement('li');
+        let hourlyCityTotal = Math.ceil(getRandomCustomers(this.max, this.min) * this.avg);
+        this.dailyTotal += hourlyCityTotal;
+        this.hourlyTotArr.push(hourlyCityTotal);
+        listItemCity.textContent = `${hours[i]}: ${hourlyCityTotal} cookies`;
+        listCity.appendChild(listItemCity);
+        console.log(`${hours[i]}: ${hourlyCityTotal} cookies`);
     }
+
+    // Creating and adding a Totals li item
+    let totalLiCity = document.createElement('li');
+    totalLiCity.textContent = `Total: ${this.dailyTotal} cookies`;
+    console.log(`Totals: ${this.dailyTotal} cookies`);
+    console.log(this.hourlyTotArr);
+    listCity.appendChild(totalLiCity);
 }
 
 // Creating Seattle Sales Object
@@ -100,3 +104,84 @@ let lima = new City(
     4.6,
 );
 lima.renderCity();
+
+// TABLE RENDERING COMPONENTS
+// Thead
+let cityTable = document.getElementById('cityTable');
+console.log(cityTable);
+
+// Creating & adding a thead
+let headTable = document.createElement('thead');
+cityTable.appendChild(headTable);
+
+// Creating & adding a tr
+let topRow = document.createElement('tr');
+headTable.appendChild(topRow);
+
+// Creating & adding a blank th
+let topCell = document.createElement('th');
+    topRow.appendChild(topCell);
+
+// Creating & adding a th for hours
+for (let i = 0; i < hours.length; i++) {
+    topCell = document.createElement('th');
+    topCell.textContent = hours[i];
+    topRow.appendChild(topCell);
+}
+
+// Creating & adding a daily location total th
+topCell = document.createElement('th');
+topCell.textContent = 'Daily Location Total';
+topRow.appendChild(topCell);
+
+
+// Tbody
+/*
+// Creating & adding a tbody
+let headTable = document.createElement('thead');
+cityTable.appendChild(headTable);
+
+// Creating & adding a tr
+let topRow = document.createElement('tr');
+headTable.appendChild(topRow);
+
+City.prototype.renderTable = function () {
+    
+}
+
+
+*/
+// Tfoot
+// Creating & adding a tfoot
+let footTable = document.createElement('tfoot');
+cityTable.appendChild(footTable);
+
+// Creating & adding a tr
+let botRow = document.createElement('tr');
+footTable.appendChild(botRow);
+
+// Creating & adding a Totals th
+let botCell = document.createElement('th');
+botCell.textContent = 'Totals';
+botRow.appendChild(botCell);
+
+// Creating & adding a th for the hourly Totals
+for (let i = 0; i < hours.length; i++) {
+    let tableHourTotal = 0;
+    for (let j = 0; j < stores.length; j++) {
+        // For hour 0 - Add all stores at hour 0
+        tableHourTotal += stores[j].hourlyTotArr[i];
+    }
+    botCell = document.createElement('td');
+    botCell.textContent = tableHourTotal;
+    botRow.appendChild(botCell);
+}
+
+// Creating & adding a th for the daily Total
+let tableDailyTotal = 0;
+for (let k = 0; k < stores.length; k++) {
+tableDailyTotal += stores[k].dailyTotal;
+}
+    botCell = document.createElement('td');
+    botCell.textContent = tableDailyTotal;
+    botRow.appendChild(botCell);
