@@ -7,6 +7,56 @@ function getRandomCustomers(max, min) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+// Elma Object
+const elma = {
+    name: 'Elma',
+    min: 10,
+    max: 35,
+    avg: 4.3,
+    dailyTotal: 0,
+    hourlyTotArr: [],
+    renderElma: function () {
+        // Seattle Sales Div
+        let elmaList = document.getElementById('elmaList');
+        console.log(elmaList);
+        // Creating & adding an h2
+        let headElm = document.createElement('h2');
+        headElm.textContent = this.name + ' Sales';
+        elmaList.appendChild(headElm);
+
+        // Creating and adding a section
+        let sectElm = document.createElement('section');
+        headElm.appendChild(sectElm);
+
+        // Creating and adding unordered list
+        let listElm = document.createElement('ul');
+        sectElm.appendChild(listElm);
+
+        // Creating a list item and add content to li and adding section to the DOM
+        for (let i = 0; i < hours.length; i++) {
+            let listItemElm = document.createElement('li');
+            let hourlyElmTotal = Math.ceil(getRandomCustomers(this.max, this.min) * this.avg);
+            this.dailyTotal += hourlyElmTotal;
+            this.hourlyTotArr.push(hourlyElmTotal);
+            listItemElm.textContent = `${hours[i]}: ${hourlyElmTotal} cookies`;
+            listElm.appendChild(listItemElm);
+            console.log(`${hours[i]}: ${hourlyElmTotal} cookies`);
+        }
+
+        // Creating and adding a Totals li item
+        let totalLiElm = document.createElement('li');
+        totalLiElm.textContent = `Total: ${this.dailyTotal} cookies`;
+        console.log(`Totals: ${this.dailyTotal} cookies`);
+        console.log(this.hourlyTotArr);
+        listElm.appendChild(totalLiElm);
+    },
+}
+
+
+// check for signs of life
+console.log('Elmas customer number: ' + getRandomCustomers(elma.max, elma.min));
+
+elma.renderElma();
 
 // Seattle Sales Div
 let seattleList = document.getElementById('seattleList');
@@ -39,7 +89,7 @@ sectSea.appendChild(listSea);
 // Creating a list item and add content to li add adding section to the DOM
 for (let i = 0; i < hours.length; i++) {
     let listItemSea = document.createElement('li');
-    let hourlySeaTotal = getRandomCustomers(seattle.max, seattle.min);
+    let hourlySeaTotal = Math.ceil(getRandomCustomers(seattle.max, seattle.min) * seattle.avg);
     seattle.dailyTotal += hourlySeaTotal;
     seattle.hourlyTotArr.push(hourlySeaTotal);
     listItemSea.textContent = `${hours[i]}: ${hourlySeaTotal} cookies`;
@@ -86,7 +136,7 @@ sectTok.appendChild(listTok);
 // Creating a list item and add content to li add adding section to the DOM
 for (let i = 0; i < hours.length; i++) {
     let listItemTok = document.createElement('li');
-    let hourlyTokTotal = getRandomCustomers(tokyo.max, tokyo.min);
+    let hourlyTokTotal = Math.ceil(getRandomCustomers(tokyo.max, tokyo.min) * tokyo.avg);
     tokyo.dailyTotal += hourlyTokTotal;
     tokyo.hourlyTotArr.push(hourlyTokTotal);
     listItemTok.textContent = `${hours[i]}: ${hourlyTokTotal} cookies`;
@@ -133,7 +183,7 @@ sectDub.appendChild(listDub);
 // Creating a list item and add content to li add adding section to the DOM
 for (let i = 0; i < hours.length; i++) {
     let listItemDub = document.createElement('li');
-    let hourlyDubTotal = getRandomCustomers(dubai.max, dubai.min);
+    let hourlyDubTotal = Math.ceil(getRandomCustomers(dubai.max, dubai.min) * dubai.avg);
     dubai.dailyTotal += hourlyDubTotal;
     dubai.hourlyTotArr.push(hourlyDubTotal);
     listItemDub.textContent = `${hours[i]}: ${hourlyDubTotal} cookies`;
@@ -180,7 +230,7 @@ sectPar.appendChild(listPar);
 // Creating a list item and add content to li add adding section to the DOM
 for (let i = 0; i < hours.length; i++) {
     let listItemPar = document.createElement('li');
-    let hourlyParTotal = getRandomCustomers(paris.max, paris.min);
+    let hourlyParTotal = Math.ceil(getRandomCustomers(paris.max, paris.min) * paris.avg);
     paris.dailyTotal += hourlyParTotal;
     paris.hourlyTotArr.push(hourlyParTotal);
     listItemPar.textContent = `${hours[i]}: ${hourlyParTotal} cookies`;
@@ -227,7 +277,7 @@ sectLim.appendChild(listLim);
 // Creating a list item and add content to li add adding section to the DOM
 for (let i = 0; i < hours.length; i++) {
     let listItemLim = document.createElement('li');
-    let hourlyLimTotal = getRandomCustomers(lima.max, lima.min);
+    let hourlyLimTotal = Math.ceil(getRandomCustomers(lima.max, lima.min) * lima.avg);
     lima.dailyTotal += hourlyLimTotal;
     lima.hourlyTotArr.push(hourlyLimTotal);
     listItemLim.textContent = `${hours[i]}: ${hourlyLimTotal} cookies`;
