@@ -21,6 +21,7 @@ function City(name, min, max, avg) {
 }
 
 City.prototype.renderCity = function () {
+    
     // City Sales Div
     let cityList = document.getElementById('cityList');
     console.log(cityList);
@@ -36,6 +37,7 @@ City.prototype.renderCity = function () {
     // Creating and adding unordered list
     let listCity = document.createElement('ul');
     sectCity.appendChild(listCity);
+    
 
     // Creating a list item, add content to li, and adding section to the DOM
     for (let i = 0; i < hours.length; i++) {
@@ -107,7 +109,7 @@ lima.renderCity();
 
 // TABLE RENDERING COMPONENTS
 // Thead
-let cityTable = document.getElementById('cityTable');
+let cityTable = document.querySelector('table');
 console.log(cityTable);
 
 // Creating & adding a thead
@@ -120,7 +122,7 @@ headTable.appendChild(topRow);
 
 // Creating & adding a blank th
 let topCell = document.createElement('th');
-    topRow.appendChild(topCell);
+topRow.appendChild(topCell);
 
 // Creating & adding a th for hours
 for (let i = 0; i < hours.length; i++) {
@@ -136,24 +138,45 @@ topRow.appendChild(topCell);
 
 
 // Tbody
-/*
 // Creating & adding a tbody
-let headTable = document.createElement('thead');
-cityTable.appendChild(headTable);
+let bodyTable = document.querySelector('tbody');
+cityTable.appendChild(bodyTable);
 
-// Creating & adding a tr
-let topRow = document.createElement('tr');
-headTable.appendChild(topRow);
 
 City.prototype.renderTable = function () {
-    
+// Creating & adding a tr
+let row = document.createElement('tr');
+bodyTable.appendChild(row);
+
+// Creating & adding a city name td
+let cityCell = document.createElement('td');
+cityCell.textContent = this.name;
+row.appendChild(cityCell);
+
+// Creating & adding City's Hourly Totals
+for (let a = 0; a < hours.length; a++) {
+cityCell = document.createElement('td');
+cityCell.textContent = this.hourlyTotArr[a];
+row.appendChild(cityCell);
+}
+
+// Creating & adding City's Daily Totals
+cityCell = document.createElement('td');
+cityCell.textContent = this.dailyTotal;
+row.appendChild(cityCell);
 }
 
 
-*/
+seattle.renderTable ();
+tokyo.renderTable ();
+dubai.renderTable ();
+paris.renderTable ();
+lima.renderTable ();
+
+
 // Tfoot
 // Creating & adding a tfoot
-let footTable = document.createElement('tfoot');
+let footTable = document.querySelector('tfoot');;
 cityTable.appendChild(footTable);
 
 // Creating & adding a tr
@@ -180,8 +203,8 @@ for (let i = 0; i < hours.length; i++) {
 // Creating & adding a th for the daily Total
 let tableDailyTotal = 0;
 for (let k = 0; k < stores.length; k++) {
-tableDailyTotal += stores[k].dailyTotal;
+    tableDailyTotal += stores[k].dailyTotal;
 }
-    botCell = document.createElement('td');
-    botCell.textContent = tableDailyTotal;
-    botRow.appendChild(botCell);
+botCell = document.createElement('td');
+botCell.textContent = tableDailyTotal;
+botRow.appendChild(botCell);
