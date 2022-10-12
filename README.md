@@ -4,7 +4,8 @@
 
 ## Problem Domain
 
-Creating a site called Salmon Cookies that will take place over 5 days. It will consist of a home page (`index.html`) and a sales page (`sales.html`). First step is building out objects for the sales page from content derived from a JS file. Lab 07 required the creation of a constructor which the cities' sales objects would be invoked from. Also the sales data will be funneled into a table displaying the hour totals for each city and combined as well as the totals for the day.
+10 October - Creating a site called Salmon Cookies that will take place over 5 days. It will consist of a home page (`index.html`) and a sales page (`sales.html`). First step is building out objects for the sales page from content derived from a JS file.
+11 October - Today required the creation of a constructor which the cities' sales objects would be invoked from. Also the sales data will be funneled into a table displaying the hour totals for each city and combined as well as the totals for the day. Each city's data had to be rendered separately as part of the table.
 
 ## Instructions
 
