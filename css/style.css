@@ -17,6 +17,7 @@ body {
 
 a {
     font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: xx-large
 }
 
 a:visited {
@@ -52,7 +53,7 @@ tfoot {
 	background-color: rgba(112,159,165, .7);
 }
 
-nav {
+nav, footer {
     text-align: center;
     font-size: xx-large
 }
