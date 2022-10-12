@@ -1,11 +1,13 @@
 # cookie-stand
 
-## Lab 06/07
+## Lab 06/07/08b
 
 ## Problem Domain
 
 10 October - Creating a site called Salmon Cookies that will take place over 5 days. It will consist of a home page (`index.html`) and a sales page (`sales.html`). First step is building out objects for the sales page from content derived from a JS file.
 11 October - Today required the creation of a constructor which the cities' sales objects would be invoked from. Also the sales data will be funneled into a table displaying the hour totals for each city and combined as well as the totals for the day. Each city's data had to be rendered separately as part of the table.
+12 October - Built out a low-fidelity wireframe with the seven photos and worked on applying it to the index.html page to include the requirements of adding seven images and locations with addresses, hours open, and contact information.
+contact information
 
 ## Instructions
 
@@ -15,6 +17,7 @@
 
 * [Eric Meyer's reset.css file](https://meyerweb.com/eric/tools/css/reset/)
 * [Montserrat Google Font](https://fonts.google.com/?query=Montserrat)
+* [Flexbox Cheatsheet Cheatsheet](https://jonitrythall.com/content/flexboxsheet.pdf)
 
 ### Submission Instructions
 
@@ -43,3 +46,14 @@ Definitely made another jump with learning today but the syntax is really the ha
 
 * How long did it take you to complete this assignment? And, before you started, how long did you think it would take you to complete this assignment?
 It took me a little over 3 hours to complete but like last night I definitely expected this to go well into the night to get finished. Again, writing pseudo code I think is what is saving me.
+
+## Comments & Reflections Lab 08b
+
+* How did this go, overall
+Funny how when you get into a project how fast time flies by. I worked this for more time than I did with lab 08a. It was more so playing with the CSS settings for the different items to see how it would look and to play with what I wanted to end up with. I did a quick low-fidelity wireframe to start with and then just played with the margins and width to give the index.html page to fit all the photos. Overall it didn't go bad at all and since I can't mix colors to save my life I just had fun with it.
+
+* What observations or questions do you have about what you’ve learned so far?
+Again, like a lot of other pieces I just need to practice to get an idea of how sizes work on the screen. I started with what Sheyna used for the demo this morning and went from there. When I realized I was spending more time to re-size the photos to fit I knew I needed to move on.
+
+* How long did it take you to complete this assignment? And, before you started, how long did you think it would take you to complete this assignment?
+I took about 2 hours to complete the assignment and I guess that is the estimate I had. To be honest though, I really didn't put a whole lot of thought into the amount of time it was going to take as I just took the lab as one of practice, not to make it perfect.  This thought process is probably something I should take for more projects so I am not stressed out.
