@@ -11,9 +11,49 @@ ul {
 }
 
 body {
-    background-color: #E6BC82;
+    background-color: #f2cc97;
+    opacity: .85;
 }
 
 a {
     font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: xx-large
+}
+
+a:visited {
+    color: #48940e;
+    font-weight: bolder;
+}
+
+a:hover {
+    color: rgb(199, 19, 19);
+}
+
+
+table, td, th {
+	border: 1px solid black;
+    
+}
+
+table {
+	margin: 1rem;
+}
+
+td, th {
+	padding: 1.5rem;
+    color: black;
+}
+
+thead th {
+    font-size: 14px;
+    color: black;
+}
+
+tfoot {
+	background-color: rgba(112,159,165, .7);
+}
+
+nav, footer {
+    text-align: center;
+    font-size: xx-large
 }

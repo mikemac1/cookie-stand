@@ -1,250 +1,212 @@
 'use strict'
 
-let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm']
+let hours = ['6 am', '7 am', '8 am', '9 am', '10 am', '11 am', '12 pm', '1 pm', '2 pm', '3 pm', '4 pm', '5 pm', '6 pm', '7 pm']
+
+let stores = [];
 
 // Need to generate a random number of customers per hour
 function getRandomCustomers(max, min) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-
-// Seattle Sales Div
-let seattleList = document.getElementById('seattleList');
-console.log(seattleList);
-
-// Seattle Object
-const seattle = {
-    name: 'Seattle',
-    min: 23,
-    max: 65,
-    avg: 6.3,
-    dailyTotal: 0,
-    hourlyTotArr: [],
+// Generic City Constructor Object
+function City(name, min, max, avg) {
+    this.name = name;
+    this.min = min;
+    this.max = max;
+    this.avg = avg;
+    this.dailyTotal = 0;
+    this.hourlyTotArr = [];
+    stores.push(this);
 }
-console.log(getRandomCustomers(seattle.max, seattle.min));
 
-// Creating & adding an h2
-let headSea = document.createElement('h2');
-headSea.textContent = seattle.name + ' Sales';
-seattleList.appendChild(headSea);
+/*
+    Div with an unordered list and list items commented out to produce only the table
+    // City Sales Div
+    let cityList = document.getElementById('cityList');
+    console.log(cityList);
+    // Creating & adding an h2
+    let headCity = document.createElement('h2');
+    headCity.textContent = this.name + ' Sales';
+    cityList.appendChild(headCity);
 
-// Creating and adding a section
-let sectSea = document.createElement('section');
-headSea.appendChild(sectSea);
+    // Creating and adding a section
+    let sectCity = document.createElement('section');
+    headCity.appendChild(sectCity);
 
-// Creating and adding unordered list
-let listSea = document.createElement('ul');
-sectSea.appendChild(listSea);
+    // Creating and adding unordered list
+    let listCity = document.createElement('ul');
+    sectCity.appendChild(listCity);
 
-// Creating a list item and add content to li add adding section to the DOM
+    let listItemCity = document.createElement('li');
+    listCity.appendChild(listItemCity);
+
+    // Creating and adding a Totals li item
+    let totalLiCity = document.createElement('li');
+    console.log(`Totals: ${this.dailyTotal} cookies`);
+    console.log(this.hourlyTotArr);
+    listCity.appendChild(totalLiCity);
+
+*/
+// Function to compute the hourly cookie count and push it to the array as well as compute the daily total.
+City.prototype.renderCity = function () {
+    
+    
+    for (let i = 0; i < hours.length; i++) {
+        let hourlyCityTotal = Math.ceil(getRandomCustomers(this.max, this.min) * this.avg);
+        this.dailyTotal += hourlyCityTotal;
+        this.hourlyTotArr.push(hourlyCityTotal);
+        console.log(`${hours[i]}: ${hourlyCityTotal} cookies`);
+    }    
+}
+
+// Creating Seattle Sales Object
+let seattle = new City(
+    'Seattle',
+    23,
+    65,
+    6.3,
+);
+seattle.renderCity();
+
+
+// Creating Tokyo Sales Object
+let tokyo = new City(
+    'Tokyo',
+    3,
+    24,
+    1.2,
+);
+tokyo.renderCity();
+
+
+// Creating Dubai Sales Object
+let dubai = new City(
+    'Dubai',
+    11,
+    38,
+    3.7,
+);
+dubai.renderCity();
+
+
+// Creating Paris Sales Object
+let paris = new City(
+    'Paris',
+    20,
+    38,
+    2.3,
+);
+paris.renderCity();
+
+
+// Creating Lima Sales Object
+let lima = new City(
+    'Lima',
+    2,
+    16,
+    4.6,
+);
+lima.renderCity();
+
+// TABLE RENDERING COMPONENTS
+// Thead
+let cityTable = document.querySelector('table');
+console.log(cityTable);
+
+// Creating & adding a thead
+let headTable = document.createElement('thead');
+cityTable.appendChild(headTable);
+
+// Creating & adding a tr
+let topRow = document.createElement('tr');
+headTable.appendChild(topRow);
+
+// Creating & adding a blank th
+let topCell = document.createElement('th');
+topRow.appendChild(topCell);
+
+// Creating & adding a th for hours
 for (let i = 0; i < hours.length; i++) {
-    let listItemSea = document.createElement('li');
-    let hourlySeaTotal = getRandomCustomers(seattle.max, seattle.min);
-    seattle.dailyTotal += hourlySeaTotal;
-    seattle.hourlyTotArr.push(hourlySeaTotal);
-    listItemSea.textContent = `${hours[i]}: ${hourlySeaTotal} cookies`;
-    listSea.appendChild(listItemSea);
-    console.log(`${hours[i]}: ${hourlySeaTotal} cookies`);
+    topCell = document.createElement('th');
+    topCell.textContent = hours[i];
+    topRow.appendChild(topCell);
 }
 
-// Creating and adding a li item
-let totalLiSea = document.createElement('li');
-totalLiSea.textContent = `Total: ${seattle.dailyTotal} cookies`;
-console.log(`Totals: ${seattle.dailyTotal} cookies`);
-console.log(seattle.hourlyTotArr);
-listSea.appendChild(totalLiSea);
+// Creating & adding a daily location total th
+topCell = document.createElement('th');
+topCell.textContent = 'Daily Location Total';
+topRow.appendChild(topCell);
 
 
-// Tokyo Sales Div
-let tokyoList = document.getElementById('tokyoList');
-console.log(tokyoList);
+// Tbody
+// Creating & adding a tbody
+let bodyTable = document.querySelector('tbody');
+cityTable.appendChild(bodyTable);
 
-// Tokyo Object
-const tokyo = {
-    name: 'Tokyo',
-    min: 3,
-    max: 24,
-    avg: 1.2,
-    dailyTotal: 0,
-    hourlyTotArr: [],
+
+City.prototype.renderTable = function () {
+// Creating & adding a tr
+let row = document.createElement('tr');
+bodyTable.appendChild(row);
+
+// Creating & adding a city name td
+let cityCell = document.createElement('td');
+cityCell.textContent = this.name;
+row.appendChild(cityCell);
+
+// Creating & adding City's Hourly Totals
+for (let a = 0; a < hours.length; a++) {
+cityCell = document.createElement('td');
+cityCell.textContent = this.hourlyTotArr[a];
+row.appendChild(cityCell);
 }
-console.log(getRandomCustomers(tokyo.max, tokyo.min));
 
-// Creating & adding an h2
-let headTok = document.createElement('h2');
-headTok.textContent = tokyo.name + ' Sales';
-tokyoList.appendChild(headTok);
+// Creating & adding City's Daily Totals
+cityCell = document.createElement('td');
+cityCell.textContent = this.dailyTotal;
+row.appendChild(cityCell);
+}
 
-// Creating and adding a section
-let sectTok = document.createElement('section');
-headTok.appendChild(sectTok);
 
-// Creating and adding unordered list
-let listTok = document.createElement('ul');
-sectTok.appendChild(listTok);
+seattle.renderTable ();
+tokyo.renderTable ();
+dubai.renderTable ();
+paris.renderTable ();
+lima.renderTable ();
 
-// Creating a list item and add content to li add adding section to the DOM
+
+// Tfoot
+// Creating & adding a tfoot
+let footTable = document.querySelector('tfoot');;
+cityTable.appendChild(footTable);
+
+// Creating & adding a tr
+let botRow = document.createElement('tr');
+footTable.appendChild(botRow);
+
+// Creating & adding a Totals th
+let botCell = document.createElement('th');
+botCell.textContent = 'Totals';
+botRow.appendChild(botCell);
+
+// Creating & adding a th for the hourly Totals
 for (let i = 0; i < hours.length; i++) {
-    let listItemTok = document.createElement('li');
-    let hourlyTokTotal = getRandomCustomers(tokyo.max, tokyo.min);
-    tokyo.dailyTotal += hourlyTokTotal;
-    tokyo.hourlyTotArr.push(hourlyTokTotal);
-    listItemTok.textContent = `${hours[i]}: ${hourlyTokTotal} cookies`;
-    listTok.appendChild(listItemTok);
-    console.log(`${hours[i]}: ${hourlyTokTotal} cookies`);
+    let tableHourTotal = 0;
+    for (let j = 0; j < stores.length; j++) {
+        // For hour 0 - Add all stores at hour 0
+        tableHourTotal += stores[j].hourlyTotArr[i];
+    }
+    botCell = document.createElement('td');
+    botCell.textContent = tableHourTotal;
+    botRow.appendChild(botCell);
 }
 
-// Creating and adding a li item
-let totalLiTok = document.createElement('li');
-totalLiTok.textContent = `Total: ${tokyo.dailyTotal} cookies`;
-console.log(`Totals: ${tokyo.dailyTotal} cookies`);
-console.log(tokyo.hourlyTotArr);
-listTok.appendChild(totalLiTok);
-
-
-// Dubai Sales Div
-let dubaiList = document.getElementById('dubaiList');
-console.log(dubaiList);
-
-// Dubai Object
-const dubai = {
-    name: 'Dubai',
-    min: 11,
-    max: 38,
-    avg: 3.7,
-    dailyTotal: 0,
-    hourlyTotArr: [],
+// Creating & adding a th for the daily Total
+let tableDailyTotal = 0;
+for (let k = 0; k < stores.length; k++) {
+    tableDailyTotal += stores[k].dailyTotal;
 }
-console.log(getRandomCustomers(dubai.max, dubai.min));
-
-// Creating & adding an h2
-let headDub = document.createElement('h2');
-headDub.textContent = dubai.name + ' Sales';
-dubaiList.appendChild(headDub);
-
-// Creating and adding a section
-let sectDub = document.createElement('section');
-headDub.appendChild(sectDub);
-
-// Creating and adding unordered list
-let listDub = document.createElement('ul');
-sectDub.appendChild(listDub);
-
-// Creating a list item and add content to li add adding section to the DOM
-for (let i = 0; i < hours.length; i++) {
-    let listItemDub = document.createElement('li');
-    let hourlyDubTotal = getRandomCustomers(dubai.max, dubai.min);
-    dubai.dailyTotal += hourlyDubTotal;
-    dubai.hourlyTotArr.push(hourlyDubTotal);
-    listItemDub.textContent = `${hours[i]}: ${hourlyDubTotal} cookies`;
-    listDub.appendChild(listItemDub);
-    console.log(`${hours[i]}: ${hourlyDubTotal} cookies`);
-}
-
-// Creating and adding a li item
-let totalLiDub = document.createElement('li');
-totalLiDub.textContent = `Total: ${dubai.dailyTotal} cookies`;
-console.log(`Totals: ${dubai.dailyTotal} cookies`);
-console.log(dubai.hourlyTotArr);
-listDub.appendChild(totalLiDub);
-
-
-// Paris Sales Div
-let parisList = document.getElementById('dubaiList');
-console.log(parisList);
-
-// Paris Object
-const paris = {
-    name: 'Paris',
-    min: 20,
-    max: 38,
-    avg: 2.3,
-    dailyTotal: 0,
-    hourlyTotArr: [],
-}
-console.log(getRandomCustomers(paris.max, paris.min));
-
-// Creating & adding an h2
-let headPar = document.createElement('h2');
-headPar.textContent = paris.name + ' Sales';
-parisList.appendChild(headPar);
-
-// Creating and adding a section
-let sectPar = document.createElement('section');
-headPar.appendChild(sectPar);
-
-// Creating and adding unordered list
-let listPar = document.createElement('ul');
-sectPar.appendChild(listPar);
-
-// Creating a list item and add content to li add adding section to the DOM
-for (let i = 0; i < hours.length; i++) {
-    let listItemPar = document.createElement('li');
-    let hourlyParTotal = getRandomCustomers(paris.max, paris.min);
-    paris.dailyTotal += hourlyParTotal;
-    paris.hourlyTotArr.push(hourlyParTotal);
-    listItemPar.textContent = `${hours[i]}: ${hourlyParTotal} cookies`;
-    listPar.appendChild(listItemPar);
-    console.log(`${hours[i]}: ${hourlyParTotal} cookies`);
-}
-
-// Creating and adding a li item
-let totalLiPar = document.createElement('li');
-totalLiPar.textContent = `Total: ${paris.dailyTotal} cookies`;
-console.log(`Totals: ${paris.dailyTotal} cookies`);
-console.log(paris.hourlyTotArr);
-listPar.appendChild(totalLiPar);
-
-
-// Lima Sales Div
-let limaList = document.getElementById('limaList');
-console.log(limaList);
-
-// Lima Object
-const lima = {
-    name: 'Lima',
-    min: 2,
-    max: 16,
-    avg: 4.6,
-    dailyTotal: 0,
-    hourlyTotArr: [],
-}
-console.log(getRandomCustomers(lima.max, lima.min));
-
-// Creating & adding an h2
-let headLim = document.createElement('h2');
-headLim.textContent = lima.name + ' Sales';
-limaList.appendChild(headLim);
-
-// Creating and adding a section
-let sectLim = document.createElement('section');
-headLim.appendChild(sectLim);
-
-// Creating and adding unordered list
-let listLim = document.createElement('ul');
-sectLim.appendChild(listLim);
-
-// Creating a list item and add content to li add adding section to the DOM
-for (let i = 0; i < hours.length; i++) {
-    let listItemLim = document.createElement('li');
-    let hourlyLimTotal = getRandomCustomers(lima.max, lima.min);
-    lima.dailyTotal += hourlyLimTotal;
-    lima.hourlyTotArr.push(hourlyLimTotal);
-    listItemLim.textContent = `${hours[i]}: ${hourlyLimTotal} cookies`;
-    listLim.appendChild(listItemLim);
-    console.log(`${hours[i]}: ${hourlyLimTotal} cookies`);
-}
-
-// Creating and adding a li item
-let totalLiLim = document.createElement('li');
-totalLiLim.textContent = `Total: ${lima.dailyTotal} cookies`;
-console.log(`Totals: ${lima.dailyTotal} cookies`);
-console.log(lima.hourlyTotArr);
-listLim.appendChild(totalLiLim);
-
-
-
-
-
-
-
+botCell = document.createElement('td');
+botCell.textContent = tableDailyTotal;
+botRow.appendChild(botCell);
