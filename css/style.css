@@ -1,18 +1,99 @@
+header {
+    width: 100%;
+    margin: auto 40px;
+    border-bottom: 1px solid darkgrey;
+}
+
+header:hover {
+    background-color: lightsalmon;
+    transition: background-color 0.35s ease;
+}
+
+header nav {
+    width: 960px;
+    margin: auto;
+    font-size: xx-large;
+}
+
+nav {
+    width: 960px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+}
+
+ul {
+    list-style-type: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 700px;
+    font-family: Arial, verdana, Helvetica;
+    font-size: 20px;
+    color: #2880d7;
+}
+
+li a {
+    color: black;
+    text-decoration: none;
+    margin: 1.5em;
+}
+
+#heroImages {
+    width: 960px;
+    margin: 30px auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+article {
+    width: 1015px;
+    margin: 15px 15%;    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+section {
+    width: 202px;
+    text-align: center;
+}
+
+section:hover {
+    background-color: lightsalmon;
+    transition: background-color 1s ease;
+    border: 2px solid black;
+}
+
+p {
+    margin: 0.35em;
+    font-weight: bold;
+}
+
 h2 {
     font-family: 'Montserrat', sans-serif;
     font-size: 32px;
     color: #0F6499;
 }
 
+h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    color: #0F6499;
+}
+
 ul {
-    font-family: Arial, verdana, Helvetica;
-    font-size: 20px;
-    color: #2880d7;
+
 }
 
 body {
-    background-color: #f2cc97;
-    opacity: .85;
+    background-color: #f6e3c8;
+    opacity: .95;
 }
 
 a {
@@ -30,30 +111,44 @@ a:hover {
 }
 
 
-table, td, th {
-	border: 1px solid black;
-    
+table,
+td,
+th {
+    border: 1px solid black;
+
 }
 
 table {
-	margin: 1rem;
+    margin: 1rem;
 }
 
-td, th {
-	padding: 1.5rem;
+td,
+th {
+    padding: 1.25rem;
     color: black;
+
 }
 
 thead th {
-    font-size: 14px;
+    font-size: 16px;
     color: black;
+    font-weight: bold;
 }
 
 tfoot {
-	background-color: rgba(112,159,165, .7);
+    background-color: rgba(112, 159, 165, .7);
 }
 
-nav, footer {
-    text-align: center;
-    font-size: xx-large
+footer {
+    margin: auto 40px;
+    border-top: 1px solid darkgrey;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+footer:hover {
+    background-color: lightsalmon;
+    transition: background-color 0.35s ease;
 }
