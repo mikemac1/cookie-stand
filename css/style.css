@@ -11,15 +11,27 @@ ul {
 }
 
 body {
-    background-color: #E6BC82;
+    background-color: #f2cc97;
+    opacity: .85;
 }
 
 a {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+a:visited {
+    color: #48940e;
+    font-weight: bolder;
+}
+
+a:hover {
+    color: rgb(199, 19, 19);
+}
+
+
 table, td, th {
 	border: 1px solid black;
+    
 }
 
 table {
@@ -28,6 +40,7 @@ table {
 
 td, th {
 	padding: 1.5rem;
+    color: black;
 }
 
 thead th {
@@ -36,5 +49,10 @@ thead th {
 }
 
 tfoot {
-	background-color: rgba(112,159,165, .1);
+	background-color: rgba(112,159,165, .7);
+}
+
+nav {
+    text-align: center;
+    font-size: xx-large
 }
