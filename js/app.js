@@ -17,7 +17,6 @@ function City(name, min, max, avg) {
     this.avg = avg;
     this.dailyTotal = 0;
     this.hourlyTotArr = [];
-    stores.push(this);
 }
 
 /*
@@ -58,6 +57,7 @@ City.prototype.renderCity = function () {
         this.hourlyTotArr.push(hourlyCityTotal);
         console.log(`${hours[i]}: ${hourlyCityTotal} cookies`);
     }    
+    stores.push(this);
 }
 
 // Creating Seattle Sales Object
@@ -169,11 +169,11 @@ row.appendChild(cityCell);
 }
 
 
-seattle.renderTable ();
-tokyo.renderTable ();
-dubai.renderTable ();
-paris.renderTable ();
-lima.renderTable ();
+seattle.renderTable();
+tokyo.renderTable();
+dubai.renderTable();
+paris.renderTable();
+lima.renderTable();
 
 
 // Tfoot
@@ -210,3 +210,6 @@ for (let k = 0; k < stores.length; k++) {
 botCell = document.createElement('td');
 botCell.textContent = tableDailyTotal;
 botRow.appendChild(botCell);
+
+
+
