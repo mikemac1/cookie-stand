@@ -87,9 +87,6 @@ h3 {
     color: #0F6499;
 }
 
-ul {
-
-}
 
 body {
     background-color: #f6e3c8;
@@ -115,28 +112,18 @@ table,
 td,
 th {
     border: 1px solid black;
-
-}
-
-table {
     margin: 1rem;
-}
-
-td,
-th {
     padding: 1.25rem;
-    color: black;
-
 }
 
-thead th {
-    font-size: 16px;
-    color: black;
-    font-weight: bold;
+thead {
+    background-color: rgba(112, 159, 165, .7);
+    opacity: .86;
 }
 
 tfoot {
     background-color: rgba(112, 159, 165, .7);
+    opacity: .86;
 }
 
 footer {
