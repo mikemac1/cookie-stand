@@ -5,13 +5,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <header>
         <nav>
-            <img src="https://raw.githubusercontent.com/codefellows/seattle-code-201d91/main/class-08/lab-b/assets/chinook.jpg" alt="chinook salmon" width="200px" height="70px"/>
+            <img src="https://raw.githubusercontent.com/codefellows/seattle-code-201d91/main/class-08/lab-b/assets/chinook.jpg"
+                alt="chinook salmon" width="200px" height="70px" />
             <ul>
                 <li><a href="index.html">HOME</a></li>
                 <li><a href="sales.html">SALES</a></li>
@@ -19,18 +22,42 @@
         </nav>
     </header>
     <main>
-        <div id="cityList">
+        <section>
+            <form>
+                <fieldset>
+                    <legend>Add a new city</legend>
+                    <!--       The id of input should match the for in the label it goes with -->
+                    <label for="cityName">City name for new sales location</label>
+                    <input id="cityName" type="text" placeholder="City Name" name="nameCity" size="50" required>
 
+                    <!-- <label>Address for new sales location
+                        <input type="text" placeholder="City address"  name="addressCity" size="50" required>
+                    </label> -->
+
+                    <label>Minimum number of customers/hour
+                        <input type="number" placeholder="Minimum" min="1" max="100" name="minCustomers" required>
+                    </label>
+
+                    <label>Maximum number of customers/hour
+                        <input type="number" placeholder="Maximum" min="1" max="100" name="maxCustomers" required>
+                    </label>
+
+                    <label>Average number of cookies per customer
+                        <input type="number" placeholder="Average" min="1" max="100" name="avgCookies" required>
+                    </label>
+                    <button type="submit">Submit</button>
+                </fieldset>
+
+            </form>
+        </section>
+        <div id="cityList">
         </div>
         <table id="cityTable">
             <thead>
-
             </thead>
             <tbody>
-
             </tbody>
             <tfoot>
-                
             </tfoot>
         </table>
     </main>

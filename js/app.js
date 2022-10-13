@@ -17,7 +17,6 @@ function City(name, min, max, avg) {
     this.avg = avg;
     this.dailyTotal = 0;
     this.hourlyTotArr = [];
-    stores.push(this);
 }
 
 /*
@@ -50,14 +49,15 @@ function City(name, min, max, avg) {
 */
 // Function to compute the hourly cookie count and push it to the array as well as compute the daily total.
 City.prototype.renderCity = function () {
-    
-    
+
+
     for (let i = 0; i < hours.length; i++) {
         let hourlyCityTotal = Math.ceil(getRandomCustomers(this.max, this.min) * this.avg);
         this.dailyTotal += hourlyCityTotal;
         this.hourlyTotArr.push(hourlyCityTotal);
         console.log(`${hours[i]}: ${hourlyCityTotal} cookies`);
-    }    
+    }
+    stores.push(this);
 }
 
 // Creating Seattle Sales Object
@@ -146,44 +146,44 @@ cityTable.appendChild(bodyTable);
 
 
 City.prototype.renderTable = function () {
-// Creating & adding a tr
-let row = document.createElement('tr');
-bodyTable.appendChild(row);
+    // Creating & adding a tr
+    let row = document.createElement('tr');
+    bodyTable.appendChild(row);
 
-// Creating & adding a city name td
-let cityCell = document.createElement('td');
-cityCell.textContent = this.name;
-row.appendChild(cityCell);
+    // Creating & adding a city name td
+    let cityCell = document.createElement('td');
+    cityCell.textContent = this.name;
+    row.appendChild(cityCell);
 
-// Creating & adding City's Hourly Totals
-for (let a = 0; a < hours.length; a++) {
-cityCell = document.createElement('td');
-cityCell.textContent = this.hourlyTotArr[a];
-row.appendChild(cityCell);
+    // Creating & adding City's Hourly Totals
+    for (let a = 0; a < hours.length; a++) {
+        cityCell = document.createElement('td');
+        cityCell.textContent = this.hourlyTotArr[a];
+        row.appendChild(cityCell);
+    }
+
+    // Creating & adding City's Daily Totals
+    cityCell = document.createElement('td');
+    cityCell.textContent = this.dailyTotal;
+    row.appendChild(cityCell);
 }
 
-// Creating & adding City's Daily Totals
-cityCell = document.createElement('td');
-cityCell.textContent = this.dailyTotal;
-row.appendChild(cityCell);
-}
 
-
-seattle.renderTable ();
-tokyo.renderTable ();
-dubai.renderTable ();
-paris.renderTable ();
-lima.renderTable ();
+seattle.renderTable();
+tokyo.renderTable();
+dubai.renderTable();
+paris.renderTable();
+lima.renderTable();
 
 
 // Tfoot
 // Creating & adding a tfoot
-let footTable = document.querySelector('tfoot');;
-cityTable.appendChild(footTable);
+let oldfootTable = document.querySelector('tfoot');;
+cityTable.appendChild(oldfootTable);
 
 // Creating & adding a tr
 let botRow = document.createElement('tr');
-footTable.appendChild(botRow);
+oldfootTable.appendChild(botRow);
 
 // Creating & adding a Totals th
 let botCell = document.createElement('th');
@@ -210,3 +210,74 @@ for (let k = 0; k < stores.length; k++) {
 botCell = document.createElement('td');
 botCell.textContent = tableDailyTotal;
 botRow.appendChild(botCell);
+
+// Building Form Event Handler
+// Step 1: Window into the DOM
+let formCity = document.querySelector('form');
+console.log()
+
+
+// Step 2: Add Event Listener
+// What is the type of Event
+formCity.addEventListener('submit', handleSubmit);
+
+
+// Step 3: DECLARE A FUNCTION TO BE THE EVENT HANDLER
+function handleSubmit(event) {
+    event.preventDefault();
+    console.log(`the form submitted`);
+    console.log(event.target.nameCity.value);
+
+    let nameCit = event.target.nameCity.value;
+    // let address = event.target.addressCity.value;
+    let minCust = parseInt(event.target.minCustomers.value);
+    let maxCust = parseInt(event.target.maxCustomers.value);
+    let avgCook = parseInt(event.target.avgCookies.value);
+
+    // function City to add city to table
+    let addCity = new City(nameCit, minCust, maxCust, avgCook);
+    console.log(addCity);
+    addCity.renderCity();
+    addCity.renderTable();
+    newDailyTotals();
+}
+
+// Create new totals
+function newDailyTotals() {
+    document.getElementById("cityTable").deleteRow(-1);
+    // Tfoot
+    // Creating & adding a tfoot
+    let footTable = document.querySelector('tfoot');;
+    cityTable.appendChild(footTable);
+
+    // Creating & adding a tr
+    let botRow = document.createElement('tr');
+    footTable.appendChild(botRow);
+
+    // Creating & adding a Totals th
+    let botCell = document.createElement('th');
+    botCell.textContent = 'New Totals';
+    botRow.appendChild(botCell);
+
+    // Creating & adding a th for the hourly Totals
+    for (let i = 0; i < hours.length; i++) {
+        let tableHourTotal = 0;
+        for (let j = 0; j < stores.length; j++) {
+            // For hour 0 - Add all stores at hour 0
+            tableHourTotal += stores[j].hourlyTotArr[i];
+        }
+        botCell = document.createElement('td');
+        botCell.textContent = tableHourTotal;
+        botRow.appendChild(botCell);
+    }
+
+    // Creating & adding a th for the daily Total
+    let tableDailyTotal = 0;
+    for (let k = 0; k < stores.length; k++) {
+        tableDailyTotal += stores[k].dailyTotal;
+    }
+    botCell = document.createElement('td');
+    botCell.textContent = tableDailyTotal;
+    botRow.appendChild(botCell);
+}
+
