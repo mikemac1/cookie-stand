@@ -7,7 +7,7 @@
 10 October - Creating a site called Salmon Cookies that will take place over 5 days. It will consist of a home page (`index.html`) and a sales page (`sales.html`). First step is building out objects for the sales page from content derived from a JS file.
 11 October - Today required the creation of a constructor which the cities' sales objects would be invoked from. Also the sales data will be funneled into a table displaying the hour totals for each city and combined as well as the totals for the day. Each city's data had to be rendered separately as part of the table.
 12 October - Built out a low-fidelity wireframe with the seven photos and worked on applying it to the index.html page to include the requirements of adding seven images and locations with addresses, hours open, and contact information.
-13 October - Build a form to accept the values for a new store location with sales data to include updating the table all done on the SALES page.
+13 October - Build a form to accept the values for a new store location with sales data to include updating the table for all original and newly added city on the SALES page.
 
 ## Instructions
 
@@ -18,6 +18,7 @@
 * [Eric Meyer's reset.css file](https://meyerweb.com/eric/tools/css/reset/)
 * [Montserrat Google Font](https://fonts.google.com/?query=Montserrat)
 * [Flexbox Cheatsheet Cheatsheet](https://jonitrythall.com/content/flexboxsheet.pdf)
+* [Table deleteRow() Method](https://www.w3schools.com/jsref/met_table_deleterow.asp#:~:text=The%20value%20of%20%2D1%20can,row%20in%20Chrome%20and%20Safari.)
 
 ### Submission Instructions
 
@@ -61,7 +62,10 @@ I took about 2 hours to complete the assignment and I guess that is the estimate
 ## Comments & Reflections Lab 09
 
 * How did this go, overall
+Well kind of weird from the standpoint I got stuck trying to make the document.querySelectorAll() method work in re-tabulating the hourly and daily totals. After spending almost an hour I relooked at how I had my JS setup with creating that last row. I decided that I could reuse that code by creating a function and then in the first line added `Table deleteRow()` to the original totals. I was shocked when it worked! Pretty happy with myself until I was concerned that maybe this wasn't the intention or if I was "breaking" a rule with what what discussed in class this morning. After showing the T/A I was told this was absolutely available as a method.  So "Googl-ing" *REALLY* does work.
 
 * What observations or questions do you have about what you’ve learned so far?
+I will admit I felt really far from success after today's lecture. Luckily between my notes and the code discussed around the Event Handler steps I was pretty successful but I am not confident with it at all. It did feel good though to at least get the last original row deleted and replaced with the new data. That felt really good because I felt like I did that on my own.
 
 * How long did it take you to complete this assignment? And, before you started, how long did you think it would take you to complete this assignment?
+For the JS portion almost 2 hours, and a little more than an hour to continue playing with the CSS. Prior to I thought it would be a lot of back and forth with the T/As.
