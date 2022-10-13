@@ -1,7 +1,7 @@
 header {
     width: 100%;
     margin: auto 40px;
-    border-bottom: 1px solid darkgrey;
+    border-bottom: 2px solid darkgrey;
 }
 
 header:hover {
@@ -18,9 +18,9 @@ header nav {
 nav {
     width: 960px;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: nowrap;
+    align-items: center;
     flex-direction: row;
 }
 
@@ -35,39 +35,39 @@ ul {
     color: #2880d7;
 }
 
-li a {
-    color: black;
-    text-decoration: dotted;
+li {
+    text-decoration-style: dotted;
     margin: 1.5em;
 }
 
 #heroImages {
     width: 960px;
-    margin: 30px auto 0;
+    margin: 2rem auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: stretch;
-}
-
-article {
-    width: 1015px;
-    margin: 15px 15%;    
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     align-items: center;
 }
 
+.flexcontainer {
+    width: 1000px;
+    margin: 2rem auto;    
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    align-content: space-between;
+    justify-content: space-around;
+}
+
 section {
-    width: 202px;
+    
     text-align: center;
 }
 
 article section:hover {
     background-color: lightsalmon;
     transition: background-color 1s ease;
-    border: 2px solid black;
+    border: 2px solid darksalmon;
 }
 
 p {
@@ -95,16 +95,24 @@ body {
 
 a {
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: xx-large
+    font-size: xx-large;
+    text-decoration-style: none;
+    text-decoration-line: none;
 }
 
 a:visited {
     color: #48940e;
     font-weight: bolder;
+    text-decoration-line: none;
+    text-decoration-style: none;
 }
 
 a:hover {
-    color: rgb(199, 19, 19);
+    color: rgb(234, 104, 60);
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+    padding: 0.5em;
+    border: 4px solid rgb(234, 104, 60);
 }
 
 
@@ -128,7 +136,7 @@ tfoot {
 
 footer {
     margin: auto 40px;
-    border-top: 1px solid darkgrey;
+    border-top: 2px solid darkgrey;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -144,6 +152,7 @@ fieldset {
     background-color: #fbcdcd;
     width: 400px;
     text-align: left;
+    padding: 0.5em;
   }
   
   legend {
@@ -167,11 +176,12 @@ fieldset {
   }
 
   button {
-    margin-left: 370px;
-    padding: 0.5em;
+ 
+    padding: 0.75em;
   }
 
  button:hover {
-    background-color: salmon;
+    background-color: rgb(249, 78, 59);
     transition: background-color 0.35s ease;
+    border: 10px solid rgb(249, 78, 59);
 }

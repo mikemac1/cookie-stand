@@ -5,7 +5,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -35,34 +35,29 @@
                     </label> -->
 
                     <label>Minimum number of customers/hour
-                        <input type="number" placeholder="Minimum number of customers" name="minCustomers" required>
+                        <input type="number" placeholder="Minimum" min="1" max="100" name="minCustomers" required>
                     </label>
 
                     <label>Maximum number of customers/hour
-                        <input type="number" placeholder="Maximum number of customers" name="maxCustomers" required>
+                        <input type="number" placeholder="Maximum" min="1" max="100" name="maxCustomers" required>
                     </label>
 
-                    <label>Average number of cookies per customer   
-                        <input type="number" placeholder="Average number of cookies shold" name="avgCookies" required>
+                    <label>Average number of cookies per customer
+                        <input type="number" placeholder="Average" min="1" max="100" name="avgCookies" required>
                     </label>
+                    <button type="submit">Submit</button>
                 </fieldset>
-                    <button type="submit" >Submit</button>
-
 
             </form>
         </section>
         <div id="cityList">
-
         </div>
         <table id="cityTable">
             <thead>
-
             </thead>
             <tbody>
-
             </tbody>
             <tfoot>
-
             </tfoot>
         </table>
     </main>
