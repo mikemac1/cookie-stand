@@ -1,13 +1,13 @@
 # cookie-stand
 
-## Lab 06/07/08b
+## Lab 06/07/08b/09
 
 ## Problem Domain
 
 10 October - Creating a site called Salmon Cookies that will take place over 5 days. It will consist of a home page (`index.html`) and a sales page (`sales.html`). First step is building out objects for the sales page from content derived from a JS file.
 11 October - Today required the creation of a constructor which the cities' sales objects would be invoked from. Also the sales data will be funneled into a table displaying the hour totals for each city and combined as well as the totals for the day. Each city's data had to be rendered separately as part of the table.
 12 October - Built out a low-fidelity wireframe with the seven photos and worked on applying it to the index.html page to include the requirements of adding seven images and locations with addresses, hours open, and contact information.
-contact information
+13 October - Build a form to accept the values for a new store location with sales data to include updating the table all done on the SALES page.
 
 ## Instructions
 
@@ -57,3 +57,11 @@ Again, like a lot of other pieces I just need to practice to get an idea of how 
 
 * How long did it take you to complete this assignment? And, before you started, how long did you think it would take you to complete this assignment?
 I took about 2 hours to complete the assignment and I guess that is the estimate I had. To be honest though, I really didn't put a whole lot of thought into the amount of time it was going to take as I just took the lab as one of practice, not to make it perfect.  This thought process is probably something I should take for more projects so I am not stressed out.
+
+## Comments & Reflections Lab 09
+
+* How did this go, overall
+
+* What observations or questions do you have about what you’ve learned so far?
+
+* How long did it take you to complete this assignment? And, before you started, how long did you think it would take you to complete this assignment?
