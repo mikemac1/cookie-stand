@@ -1,6 +1,6 @@
 # cookie-stand
 
-## Lab 06/07/08b/09
+## Lab 06/07/08b/09/10b
 
 ## Problem Domain
 
@@ -8,6 +8,7 @@
 11 October - Today required the creation of a constructor which the cities' sales objects would be invoked from. Also the sales data will be funneled into a table displaying the hour totals for each city and combined as well as the totals for the day. Each city's data had to be rendered separately as part of the table.
 12 October - Built out a low-fidelity wireframe with the seven photos and worked on applying it to the index.html page to include the requirements of adding seven images and locations with addresses, hours open, and contact information.
 13 October - Build a form to accept the values for a new store location with sales data to include updating the table for all original and newly added city on the SALES page.
+14 October - Completed cleaning up JS and added some new CSS styles to meet the requirements of lab 10b.
 
 ## Instructions
 
@@ -19,6 +20,7 @@
 * [Montserrat Google Font](https://fonts.google.com/?query=Montserrat)
 * [Flexbox Cheatsheet Cheatsheet](https://jonitrythall.com/content/flexboxsheet.pdf)
 * [Table deleteRow() Method](https://www.w3schools.com/jsref/met_table_deleterow.asp#:~:text=The%20value%20of%20%2D1%20can,row%20in%20Chrome%20and%20Safari.)
+* [Font Awesome](https://fontawesome.com/)
 
 ### Submission Instructions
 
@@ -69,3 +71,14 @@ I will admit I felt really far from success after today's lecture. Luckily betwe
 
 * How long did it take you to complete this assignment? And, before you started, how long did you think it would take you to complete this assignment?
 For the JS portion almost 2 hours, and a little more than an hour to continue playing with the CSS. Prior to I thought it would be a lot of back and forth with the T/As.
+
+## Comments & Reflections Lab 10b
+
+* How did this go, overall
+All I added was the necessary CSS styling to ensure the original requirements laid out in Lab 6 and re-stated in this lab were met. Not difficult or time consuming.
+
+* What observations or questions do you have about what you’ve learned so far?
+None that I can think of at this time.  To be honest it has been a long week and happy that I have kept up with the current workload of labs, reading assignments, and quizes.
+
+* How long did it take you to complete this assignment? And, before you started, how long did you think it would take you to complete this assignment?
+Took almost an hour and that is about what I expected it to be.
