@@ -19,38 +19,9 @@ function City(name, min, max, avg) {
     this.hourlyTotArr = [];
 }
 
-/*
-    Div with an unordered list and list items commented out to produce only the table
-    // City Sales Div
-    let cityList = document.getElementById('cityList');
-    console.log(cityList);
-    // Creating & adding an h2
-    let headCity = document.createElement('h2');
-    headCity.textContent = this.name + ' Sales';
-    cityList.appendChild(headCity);
 
-    // Creating and adding a section
-    let sectCity = document.createElement('section');
-    headCity.appendChild(sectCity);
-
-    // Creating and adding unordered list
-    let listCity = document.createElement('ul');
-    sectCity.appendChild(listCity);
-
-    let listItemCity = document.createElement('li');
-    listCity.appendChild(listItemCity);
-
-    // Creating and adding a Totals li item
-    let totalLiCity = document.createElement('li');
-    console.log(`Totals: ${this.dailyTotal} cookies`);
-    console.log(this.hourlyTotArr);
-    listCity.appendChild(totalLiCity);
-
-*/
 // Function to compute the hourly cookie count and push it to the array as well as compute the daily total.
 City.prototype.renderCity = function () {
-
-
     for (let i = 0; i < hours.length; i++) {
         let hourlyCityTotal = Math.ceil(getRandomCustomers(this.max, this.min) * this.avg);
         this.dailyTotal += hourlyCityTotal;
@@ -168,7 +139,6 @@ City.prototype.renderTable = function () {
     row.appendChild(cityCell);
 }
 
-
 seattle.renderTable();
 tokyo.renderTable();
 dubai.renderTable();
@@ -242,7 +212,7 @@ function handleSubmit(event) {
     newDailyTotals();
 }
 
-// Create new totals
+// Create new totals for added city
 function newDailyTotals() {
     document.getElementById("cityTable").deleteRow(-1);
     // Tfoot
